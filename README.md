@@ -1,17 +1,17 @@
-# Pepper-Box - Kafka Load Generator
+# kafka-jmeter - Kafka Load Test
 
-[![Build Status](https://travis-ci.org/GSLabDev/pepper-box.svg?branch=master)](https://travis-ci.org/GSLabDev/pepper-box) [![Coverage Status](https://coveralls.io/repos/github/GSLabDev/pepper-box/badge.svg?branch=master&maxAge=0)](https://coveralls.io/github/GSLabDev/pepper-box?branch=master)
 
 ___
 
-Pepper-Box is kafka load generator plugin for jmeter. It allows to send kafka messages of type plain text(JSON, XML, CSV or any other custom format) as well as java serialized objects.
+kafka-jmeter is a kafka load test plugin for jmeter. It allows to send and pull kafka messages of type plain text(JSON, XML, CSV or any other custom format) as well as java serialized objects.By delivery a timeStamp value from ProducerSample to CustomSample, it can caculator the response time via kafka.
 
 ## Getting Started
 ___
 
-Pepper-Box includes four main components
+kafka-jmeter includes four main components
 
-* **PepperBoxKafkaSampler** : This is jmeter java sampler sends messages to kafka.
+* **KafkaProducerSampler** : This is jmeter java sampler sends messages to kafka.
+* **KafkaCustomSampler** : This is jmeter java sampler pull messages to kafka.
 * **Pepper-Box PlainText Config** : This jmeter config element generates plaintext messages based on input schema template designed.
 * **Pepper-Box Serialized Config** : This jmeter config element generates serialized object messages based on input class and its property configurations.
 * **PepperBoxLoadGenerator** : This is standalone utility which can be used without jmeter.
@@ -21,7 +21,7 @@ ___
 
 #### Requirement
 
-Pepper-Box uses Java 8 with java compiler API, hence on JMeter machine JDK 8 should be installed instead of JRE 8.
+kafka-jmeter uses Java 8 with java compiler API, hence on JMeter machine JDK 8 should be installed instead of JRE 8.
 
 Install openjdk on Debian, Ubuntu, etc.,
 ```
@@ -42,7 +42,7 @@ JMeter and Kafka version can be passed dynamically.
 
 Once build is completed, copy jar file to JMETER_HOME/lib/ext directory.
 
-### PepperBoxKafkaSampler
+### KafkaProducerSampler
 ___
 
 This is java sampler hence in ThreadGroup add sampler as Java Request and select class as com.gslab.pepper.sampler.PepperBoxKafkaSampler
